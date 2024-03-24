@@ -95,6 +95,7 @@ class RegistrationPage:
         self.fill_city(user.city)
 
     def should_have_registered(self, user: User):
+        self.scroll('submit')
         self.submit('submit')
         self.assert_filled_table()
         self.assert_user_data(
