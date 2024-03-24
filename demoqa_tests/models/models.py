@@ -1,5 +1,3 @@
-from lib2to3.pgen2 import driver
-
 from selene import browser, be, have
 
 from demoqa_tests.models.data import User
