@@ -1,3 +1,4 @@
+from allure_commons._allure import attach
 from selene import browser
 import pytest
 from pathlib import Path
@@ -29,4 +30,11 @@ def browser_management():
     browser.config.window_width = 1920
     browser.config.window_height = 1080
     yield
+
+    browser.config.driver = driver
+
+    attach.add_video(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
     browser.quit()
