@@ -1,4 +1,4 @@
-from allure_commons._allure import attach
+from utils import attach
 from selene import browser
 import pytest
 from pathlib import Path
