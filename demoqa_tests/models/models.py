@@ -1,4 +1,4 @@
-from selene import browser, be, have
+from selene import browser, be, have, command
 
 from demoqa_tests.models.data import User
 from tests import conftest
@@ -51,6 +51,9 @@ class RegistrationPage:
 
     def submit(self, value):
         browser.element(f'#{value}').click()
+
+    def scroll(self, tag):
+        browser.element(f'#{tag}').perform(command.js.scroll_into_view)
 
     def assert_user_data(self, full_name, email, gender,
                          phone_number, birthday, subjects, hobbies,
@@ -105,3 +108,5 @@ class RegistrationPage:
             user.picture,
             user.address,
             f'{user.state} {user.city}')
+        self.scroll('closeLargeModal')
+        self.submit('closeLargeModal')
